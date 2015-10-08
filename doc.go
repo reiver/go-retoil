@@ -21,8 +21,11 @@ To use, create one or more types that implement the toil.Toiler interface. For e
 	func (toiler *awesomeToiler) Toil() {
 		//@TODO: Do work here.
 		//
-		// And me this block (i.e., not return)
+		// And this blocks (i.e., not not return)
 		// until the work is done.
+		//
+		// It also panic()s if it encounters a problem
+		// it cannot or doesn't want to deal with.
 	}
 
 Then create a retoiler that wraps that toiler. (Also choosing a retoil strategy, when doing that.)
