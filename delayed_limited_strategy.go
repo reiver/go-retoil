@@ -13,8 +13,9 @@ type internalDelayedLimitedStrategy struct{
 }
 
 
-// DelayedLimitedStrategy returns an initialized retoil.Strategizer which will retoil
-// at most 'maxRetoils' times with at least a delay of 'delay' between each retoil.
+// DelayedLimitedStrategy returns an initialized retoil.Strategizer which will only
+// cause a retoil on a panic() (and not on a return) at most 'maxRetoils' times with
+// at least a delay of 'delay' between each retoil.
 func DelayedLimitedStrategy(maxRetoils uint, delay time.Duration) Strategizer {
 	strategy := internalDelayedLimitedStrategy{
 		retoilCount:0,

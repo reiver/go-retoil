@@ -15,9 +15,10 @@ type internalLimitedExponentialBackoffStrategy struct{
 }
 
 
-// LimitedExponentialBackoffStrategy returns an initialized retoil.Strategizer which will retoil
-// at most 'maxRetoils' times using exponential backoff with time resolution 'timeResolution'
-// to decide the delay between each retoil.
+// LimitedExponentialBackoffStrategy returns an initialized retoil.Strategizer which will only
+// cause a retoil on a panic() (and not on a return) at most 'maxRetoils' times with
+// using exponential backoff with time resolution 'timeResolution' to decide the delay between
+// each retoil.
 func LimitedExponentialBackoffStrategy(maxRetoils uint, timeResolution time.Duration) Strategizer {
 	randomness := rand.New( rand.NewSource( time.Now().UTC().UnixNano() ) )
 
